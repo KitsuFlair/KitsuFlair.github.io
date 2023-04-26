@@ -57,10 +57,14 @@
                 }
             },
             created() {      // section executes as page loads
-                this.getBySpeed()  // load json data as page loads
+                this.getData()  // load json data as page loads
             },
             methods: {    // ajax request
-                async getBySpeed() {
+                async getData() {
+                    const response = await fetch('tickets1.json')
+                    this.tickets = await response.json()    
+                },
+                getBySpeed() {
                     this.showTable = true
                     this.tickets = this.results.filter( (ticket) => (ticket.actual_speed - ticket.posted_speed) >= 25 )
                 }
