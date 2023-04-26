@@ -62,7 +62,7 @@
             methods: {    // ajax request
                 async getBySpeed() {
                     this.showTable = true
-                    this.tickets = this.results.filter( (ticket) => (ticket.actual_speed - ticket.posted_speed) >= 25 );
+                    this.tickets = this.results.filter( (ticket) => (ticket.actual_speed - ticket.posted_speed) >= 25 )
                 }
             }
           })
