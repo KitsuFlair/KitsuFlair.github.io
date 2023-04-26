@@ -53,6 +53,7 @@
             data() {     // returns an object of data
                 return {
                     tickets: [],           // array to hold student data
+                    showTable: true
                 }
             },
             created() {      // section executes as page loads
@@ -60,10 +61,8 @@
             },
             methods: {    // ajax request
                 async getBySpeed() {
-                    const response = await fetch('tickets1.json')
-                    this.tickets = await response.json()  
                     this.showTable = true
-                    tickets = data.filter( (item) => item.major == majSelect ); 
+                    this.tickets = this.results.filter( (ticket) => (ticket.actual_speed - ticket.posted_speed) >= 25 );
                 }
             }
           })
